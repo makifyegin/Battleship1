@@ -26,6 +26,9 @@ Field fieldA = new Field();
             }
             System.out.println();
 
+            // ~ denotes the fog of war
+            // O denotes a cells with your ship
+            // X denotes that the ship was hit?
         }
     }
 }

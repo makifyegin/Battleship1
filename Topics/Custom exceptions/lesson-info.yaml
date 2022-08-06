@@ -1,0 +1,9 @@
+content:
+- Theory
+- Custom checked exception
+- Handle incorrect inputs
+- Exception chaining
+- DriverNotReadyException
+- Checked exception with constructor
+- Custom exceptions features
+- Square class

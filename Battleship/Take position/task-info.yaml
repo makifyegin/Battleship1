@@ -1,6 +1,21 @@
 type: edu
 custom_name: Take position!
 files:
+- name: src/battleship/Main.java
+  visible: true
+  text: |
+    package battleship;
+
+    public class Main {
+
+        public static void main(String[] args) {
+            // Write your code here
+        }
+    }
+  learner_created: false
+- name: src/battleship/Field.java
+  visible: true
+  learner_created: true
 - name: test/Tests.java
   visible: false
   text: |
@@ -270,21 +285,6 @@ files:
 
     }
   learner_created: false
-- name: src/battleship/Main.java
-  visible: true
-  text: |
-    package battleship;
-
-    public class Main {
-
-        public static void main(String[] args) {
-            // Write your code here
-        }
-    }
-  learner_created: false
-- name: src/battleship/Field.java
-  visible: true
-  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/10594#comment
 status: Unchecked
 record: -1

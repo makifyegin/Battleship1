@@ -1,5 +1,7 @@
 package battleship;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -15,18 +17,21 @@ public class Main extends Field {
     public static String firstColumn;
     public static String secondColumn;
     public static int dif;
+    public static String[][] firstPlayerOcean = new String[10][10];
 
     public static void main(String[] args) {
-        Field firstPlayer = new Field();
+
         Field secondPlayer = new Field();
-        String[][] firstPlayerOcean = new String[10][10];
+        Field firstPlayer = new Field();
+
         String[][] secondPlayerOcean = new String[10][10];
         // Write your code here
         Scanner scanner = new Scanner(System.in);
         firstColumn = scanner.next();
         secondColumn = scanner.next();
-
+        System.out.println();
         firstPlayerOcean = firstPlayer.createOcean();
+
 
         firstColumnCharacter1 = "" + firstColumn.charAt(0);
         secondColumnCharacter1 = "" + firstColumn.charAt(1);
@@ -36,20 +41,16 @@ public class Main extends Field {
         secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
 
         dif = secondColumnInteger2 - secondColumnInteger1;
-        firstPlayerOcean[column(firstColumnCharacter1)][secondColumnInteger1] = "O";
-        firstPlayerOcean[column(firstColumnCharacter2)][secondColumnInteger2] = "O";
-
-        printMultiDimensionalArray(firstPlayerOcean);
-
-
+//        int b7 = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
+        printMultiDimensionalArray(putShip(battleship));
     }
 
     public static int count = 0;
 
     public static int findCharactersSubtrack(String first, String second) {
 
-        for (char i = first.charAt(0); i < second.charAt(0); i++) {
-
+        count = 0;
+        for (char i = first.charAt(0); i <= second.charAt(0); i++) {
             count++;
         }
 
@@ -58,24 +59,28 @@ public class Main extends Field {
 
 
     public static String[][] putShip(String[] akif) {
-
+        String[][] mehmet = firstPlayerOcean;
+        int b = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
         if (firstColumnCharacter1.equals(firstColumnCharacter2) || (secondColumnInteger1 == secondColumnInteger2)) {
-            if (Math.abs(dif) == akif.length || findCharactersSubtrack(firstColumnCharacter1,firstColumnCharacter2)==akif.length) {
+            if (Math.abs(dif) == akif.length || b == akif.length) {
 
-                if (Math.abs(dif)==akif.length) {
-                    for (int i = secondColumnInteger1; i <=secondColumnInteger2 ; i++) {
+                if (Math.abs(dif) == akif.length) {
+                    for (int i = secondColumnInteger1; i <= secondColumnInteger2; i++) {
+                        mehmet[column(firstColumnCharacter1)][i] = "O";
 
-
-
+                    }
+                }
+int a = column(firstColumnCharacter1);
+                if (b == akif.length) {
+                    for (int i = a; i <= b; i++) {
+                        mehmet[i][secondColumnInteger1] = "O";
                     }
                 }
 
 
-
-
             }
-            }
-
         }
+        return mehmet;
     }
+}
 

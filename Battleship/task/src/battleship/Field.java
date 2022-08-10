@@ -54,17 +54,17 @@ public class Field {
         System.out.print("  ");
 
 
-            // ~ denotes the fog of war
-            // O denotes a cells with your ship
-            // X denotes that the ship was hit?
-
+        // ~ denotes the fog of war
+        // O denotes a cells with your ship
+        // X denotes that the ship was hit?
 
 
         return myOcean;
     }
 
-    public static void printMultiDimensionalArray(String[][] akif){
+    public static void printMultiDimensionalArray(String[][] akif) {
         for (int i = 1; i <= 10; i++) {
+
             System.out.print(i + " ");
         }
         System.out.println();
@@ -112,7 +112,7 @@ public class Field {
                 break;
 
         }
-        return columnInteger;
+        return Field.columnInteger;
     }
 
 

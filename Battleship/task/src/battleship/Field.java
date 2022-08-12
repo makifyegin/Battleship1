@@ -32,7 +32,15 @@ public class Field {
     public static final String[] cruise = new String[3];
     public static final String[] destroyer = new String[2];
 
-
+    public static void zeroToTen(){
+        for (int i = 0; i <= 10; i++) {
+            if (i == 0) {
+                System.out.print("  ");
+            } else {
+                System.out.print(i + " ");
+            }
+        }
+    }
     public String[][] createOcean() {
         for (int i = 0; i < myOcean.length; i++) {
             for (int j = 0; j < myOcean[i].length; j++) {

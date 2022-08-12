@@ -70,9 +70,10 @@ public class Main extends Field {
 
                     }
                 }
-int a = column(firstColumnCharacter1);
+                int a = column(firstColumnCharacter1);
                 if (b == akif.length) {
-                    for (int i = a; i <= b; i++) {
+                    b = b + a;
+                    for (int i = a; i < b; i++) {
                         mehmet[i][secondColumnInteger1] = "O";
                     }
                 }

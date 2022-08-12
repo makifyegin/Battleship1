@@ -24,13 +24,7 @@ public class Field {
     }
 
     public static final String[][] myOcean = new String[10][10];  //Multidimensional Array[10][10] as a String
-    String warShip;
 
-    public enum WarShip {
-        AirCraft, BattleShip, Submarine, Cruise, Destroyer;
-
-
-    }
 
     public static final String[] aircraft = new String[5];
     public static final String[] battleship = new String[4];
@@ -63,10 +57,8 @@ public class Field {
     }
 
     public static void printMultiDimensionalArray(String[][] akif) {
-        for (int i = 1; i <= 10; i++) {
 
-            System.out.print(i + " ");
-        }
+
         System.out.println();
         for (int i = 0, l = 'A'; i < akif.length; i++, l++) {
             System.out.print("" + Character.toString(l) + " ");

@@ -32,14 +32,21 @@ public class Main extends Field {
 
 //        int b7 = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
 
+        for (int i = 0; i <= 10; i++) {
+            if (i==0) {
+                System.out.print("  ");
+            }else {
+                System.out.print(i+" ");
+            }
+        }
         printMultiDimensionalArray(firstPlayer.createOcean());
+        firstPlayerOcean = firstPlayer.createOcean();
         System.out.println();
         for (ships value : ships.values()) {
             System.out.printf("Enter the coordinates of the %s (%d cells)\n", value.getNameOfShips(), value.getLengthOfShips().length);
             System.out.println();
             firstColumn = scanner.next();
             secondColumn = scanner.next();
-            firstPlayerOcean = firstPlayer.createOcean();
             firstColumnCharacter1 = "" + firstColumn.charAt(0);
             secondColumnCharacter1 = "" + firstColumn.charAt(1);
             firstColumnCharacter2 = "" + secondColumn.charAt(0);
@@ -48,7 +55,15 @@ public class Main extends Field {
             secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
             dif = secondColumnInteger2 - secondColumnInteger1;
             System.out.println();
+            for (int i = 0; i <= 10; i++) {
+                if (i==0) {
+                    System.out.print("  ");
+                }else {
+                    System.out.print(i+" ");
+                }
+            }
             printMultiDimensionalArray(putShip(value.getLengthOfShips()));
+            firstPlayerOcean = putShip(value.getLengthOfShips());
         }
 
 
@@ -74,9 +89,9 @@ public class Main extends Field {
         String[][] mehmet = firstPlayerOcean;
         int b = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
         if (firstColumnCharacter1.equals(firstColumnCharacter2) || (secondColumnInteger1 == secondColumnInteger2)) {
-            if (Math.abs(dif) == akif.length || b == akif.length) {
+            if (Math.abs(dif) + 1 == akif.length || b == akif.length) {
 
-                if (Math.abs(dif) == akif.length) {
+                if (Math.abs(dif) + 1 == akif.length) {
                     for (int i = secondColumnInteger1; i <= secondColumnInteger2; i++) {
                         mehmet[column(firstColumnCharacter1)][i] = "O";
 

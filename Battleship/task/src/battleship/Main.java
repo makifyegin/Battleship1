@@ -20,12 +20,6 @@ public class Main extends Field {
     public static String[][] firstPlayerOcean = new String[10][10];
 
     public static void main(String[] args) {
-        for (ships value : ships.values()) {
-
-            System.out.printf("Enter the coordinates of the %s (%d cells)\n", value.getNameOfShips(), value.getLengthOfShips());
-
-        }
-
         String shipName;
         Field secondPlayer = new Field();
         Field firstPlayer = new Field();
@@ -34,21 +28,30 @@ public class Main extends Field {
         // Write your code here
         Scanner scanner = new Scanner(System.in);
 //        while () {
-        firstColumn = scanner.next();
-        secondColumn = scanner.next();
-        System.out.println();
-        firstPlayerOcean = firstPlayer.createOcean();
 
 
-        firstColumnCharacter1 = "" + firstColumn.charAt(0);
-        secondColumnCharacter1 = "" + firstColumn.charAt(1);
-        firstColumnCharacter2 = "" + secondColumn.charAt(0);
-        secondColumnCharacter2 = "" + secondColumn.charAt(1);
-        secondColumnInteger1 = Integer.parseInt(secondColumnCharacter1) - 1;
-        secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
-        dif = secondColumnInteger2 - secondColumnInteger1;
 //        int b7 = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
-        printMultiDimensionalArray(putShip(battleship));
+
+        printMultiDimensionalArray(firstPlayer.createOcean());
+        System.out.println();
+        for (ships value : ships.values()) {
+            System.out.printf("Enter the coordinates of the %s (%d cells)\n", value.getNameOfShips(), value.getLengthOfShips().length);
+            System.out.println();
+            firstColumn = scanner.next();
+            secondColumn = scanner.next();
+            firstPlayerOcean = firstPlayer.createOcean();
+            firstColumnCharacter1 = "" + firstColumn.charAt(0);
+            secondColumnCharacter1 = "" + firstColumn.charAt(1);
+            firstColumnCharacter2 = "" + secondColumn.charAt(0);
+            secondColumnCharacter2 = "" + secondColumn.charAt(1);
+            secondColumnInteger1 = Integer.parseInt(secondColumnCharacter1) - 1;
+            secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
+            dif = secondColumnInteger2 - secondColumnInteger1;
+            System.out.println();
+            printMultiDimensionalArray(putShip(value.getLengthOfShips()));
+        }
+
+
     }
 //    }
 

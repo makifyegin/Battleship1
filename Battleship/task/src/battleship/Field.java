@@ -117,20 +117,20 @@ public class Field {
 
 
     public enum ships {
-        aircraft(5, "Aircraft Carrier"),
-        battleship(4, "Battleship"),
-        submarine(3, "Submarine"),
-        cruise(3, "Cruiser"),
-        destroyer(2, "Destroyer");
-        int lengthOfShips;
+        aircraft(Field.aircraft, "Aircraft Carrier"),
+        battleship(Field.battleship, "Battleship"),
+        submarine(Field.submarine, "Submarine"),
+        cruise(Field.cruise, "Cruiser"),
+        destroyer(Field.destroyer, "Destroyer");
+        String[] lengthOfShips;
         String nameOfShips;
 
-        ships(int lengthOfShips, String nameOfShips) {
+        ships(String[] lengthOfShips, String nameOfShips) {
             this.lengthOfShips = lengthOfShips;
             this.nameOfShips = nameOfShips;
         }
 
-        public int getLengthOfShips() {
+        public String[] getLengthOfShips() {
             return lengthOfShips;
         }
 
@@ -140,7 +140,7 @@ public class Field {
 
         public static ships findByLengthOfShip(int lengthOfShips) {
             for (ships value : values()) {
-                if (value.lengthOfShips==lengthOfShips) {
+                if (value.lengthOfShips.length==lengthOfShips) {
                     return value;
                 }
             }

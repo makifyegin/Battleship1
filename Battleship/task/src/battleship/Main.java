@@ -4,6 +4,7 @@ import org.w3c.dom.ls.LSOutput;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -18,8 +19,11 @@ public class Main extends Field {
     public static String secondColumn;
     public static int dif;
     public static String[][] firstPlayerOcean = new String[10][10];
+    ships value;
+    public static int i = 0;
 
     public static void main(String[] args) {
+
         String shipName;
         Field secondPlayer = new Field();
         Field firstPlayer = new Field();
@@ -33,17 +37,24 @@ public class Main extends Field {
 //        int b7 = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
 
         for (int i = 0; i <= 10; i++) {
-            if (i==0) {
+            if (i == 0) {
                 System.out.print("  ");
-            }else {
-                System.out.print(i+" ");
+            } else {
+                System.out.print(i + " ");
             }
         }
         printMultiDimensionalArray(firstPlayer.createOcean());
         firstPlayerOcean = firstPlayer.createOcean();
         System.out.println();
-        for (ships value : ships.values()) {
-            System.out.printf("Enter the coordinates of the %s (%d cells)\n", value.getNameOfShips(), value.getLengthOfShips().length);
+
+
+        ships[] values = ships.values();
+
+        for (i = 0; i < values.length;) {
+
+
+
+            System.out.printf("Enter the coordinates of the %s (%d cells)\n",  values[i].getNameOfShips(), values[i].getLengthOfShips().length);
             System.out.println();
             firstColumn = scanner.next();
             secondColumn = scanner.next();
@@ -54,20 +65,56 @@ public class Main extends Field {
             secondColumnInteger1 = Integer.parseInt(secondColumnCharacter1) - 1;
             secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
             dif = secondColumnInteger2 - secondColumnInteger1;
-            System.out.println();
-            for (int i = 0; i <= 10; i++) {
-                if (i==0) {
-                    System.out.print("  ");
-                }else {
-                    System.out.print(i+" ");
+
+            String[] akif = values[i].getLengthOfShips();
+            String[][] mehmet = firstPlayerOcean;
+            int b = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
+            if (firstColumnCharacter1.equals(firstColumnCharacter2) || (secondColumnInteger1 == secondColumnInteger2)) {
+                if (Math.abs(dif) + 1 == akif.length || b == akif.length) {
+                    if (Math.abs(dif) + 1 == akif.length) {
+                        System.out.println();
+                        for (int m = 0; m <= 10; m++) {
+                            if (m == 0) {
+                                System.out.print("  ");
+                            } else {
+                                System.out.print(m + " ");
+                            }
+                        }
+                        for (int i = secondColumnInteger1; i <= secondColumnInteger2; i++) {
+                            mehmet[column(firstColumnCharacter1)][i] = "O";
+
+                        }
+                    }
+                    int a = column(firstColumnCharacter1);
+                    if (b == akif.length) {
+                        for (int m = 0; m <= 10; m++) {
+                            if (m == 0) {
+                                System.out.print("  ");
+                            } else {
+                                System.out.print(m + " ");
+                            }
+                        }
+                        b = b + a;
+                        for (int i = a; i < b; i++) {
+                            mehmet[i][secondColumnInteger1] = "O";
+                        }
+
+                    }
+                    i++;
+                    printMultiDimensionalArray(mehmet);
+                } else {
+                    System.out.printf("Error! Wrong length of the %s! Try again:\n", ships.values());
+                    System.out.println();
                 }
+
             }
-            printMultiDimensionalArray(putShip(value.getLengthOfShips()));
-            firstPlayerOcean = putShip(value.getLengthOfShips());
         }
 
 
     }
+
+
+
 //    }
 
 
@@ -85,31 +132,6 @@ public class Main extends Field {
         return count;
     }
 
-    public static String[][] putShip(String[] akif) {
-        String[][] mehmet = firstPlayerOcean;
-        int b = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
-        if (firstColumnCharacter1.equals(firstColumnCharacter2) || (secondColumnInteger1 == secondColumnInteger2)) {
-            if (Math.abs(dif) + 1 == akif.length || b == akif.length) {
-
-                if (Math.abs(dif) + 1 == akif.length) {
-                    for (int i = secondColumnInteger1; i <= secondColumnInteger2; i++) {
-                        mehmet[column(firstColumnCharacter1)][i] = "O";
-
-                    }
-                }
-                int a = column(firstColumnCharacter1);
-                if (b == akif.length) {
-                    b = b + a;
-                    for (int i = a; i < b; i++) {
-                        mehmet[i][secondColumnInteger1] = "O";
-                    }
-                }
-
-
-            }
-        }
-        return mehmet;
-    }
 
 }
 

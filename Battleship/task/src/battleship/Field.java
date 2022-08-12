@@ -116,4 +116,39 @@ public class Field {
     }
 
 
+    public enum ships {
+        aircraft(5, "Aircraft Carrier"),
+        battleship(4, "Battleship"),
+        submarine(3, "Submarine"),
+        cruise(3, "Cruiser"),
+        destroyer(2, "Destroyer");
+        int lengthOfShips;
+        String nameOfShips;
+
+        ships(int lengthOfShips, String nameOfShips) {
+            this.lengthOfShips = lengthOfShips;
+            this.nameOfShips = nameOfShips;
+        }
+
+        public int getLengthOfShips() {
+            return lengthOfShips;
+        }
+
+        public String getNameOfShips() {
+            return nameOfShips;
+        }
+
+        public static ships findByLengthOfShip(int lengthOfShips) {
+            for (ships value : values()) {
+                if (value.lengthOfShips==lengthOfShips) {
+                    return value;
+                }
+            }
+
+
+            return null;
+        }
+    }
+
+
 }

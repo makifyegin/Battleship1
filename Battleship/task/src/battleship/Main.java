@@ -20,13 +20,20 @@ public class Main extends Field {
     public static String[][] firstPlayerOcean = new String[10][10];
 
     public static void main(String[] args) {
+        for (ships value : ships.values()) {
 
+            System.out.printf("Enter the coordinates of the %s (%d cells)\n", value.getNameOfShips(), value.getLengthOfShips());
+
+        }
+
+        String shipName;
         Field secondPlayer = new Field();
         Field firstPlayer = new Field();
 
         String[][] secondPlayerOcean = new String[10][10];
         // Write your code here
         Scanner scanner = new Scanner(System.in);
+//        while () {
         firstColumn = scanner.next();
         secondColumn = scanner.next();
         System.out.println();
@@ -39,11 +46,14 @@ public class Main extends Field {
         secondColumnCharacter2 = "" + secondColumn.charAt(1);
         secondColumnInteger1 = Integer.parseInt(secondColumnCharacter1) - 1;
         secondColumnInteger2 = Integer.parseInt(secondColumnCharacter2) - 1;
-
         dif = secondColumnInteger2 - secondColumnInteger1;
 //        int b7 = findCharactersSubtrack(firstColumnCharacter1, firstColumnCharacter2);
         printMultiDimensionalArray(putShip(battleship));
     }
+//    }
+
+
+//    }
 
     public static int count = 0;
 
@@ -56,7 +66,6 @@ public class Main extends Field {
 
         return count;
     }
-
 
     public static String[][] putShip(String[] akif) {
         String[][] mehmet = firstPlayerOcean;
@@ -83,5 +92,6 @@ public class Main extends Field {
         }
         return mehmet;
     }
+
 }
 

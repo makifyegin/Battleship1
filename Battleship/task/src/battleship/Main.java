@@ -107,7 +107,7 @@ public class Main extends Field {
 
 
 
-//                        subtractingCharsInteger = subtractingCharsInteger + a;
+                        subtractingCharsInteger = subtractingCharsInteger + a;
                         for (int i = a; i <= subtractingCharsInteger; i++) {
 //                            try {
 //

@@ -27,6 +27,7 @@ public class Main extends Field {
     public static int i = 0;
 
     public static int subtractingCharsInteger;
+    public static String[][] firstPlayerOceanBoard = firstPlayerOcean;        // Ocean Board
 
 
     public static void main(String[] args) {
@@ -73,7 +74,6 @@ public class Main extends Field {
 
 
             String[] eachShipLengthArray = values[i].getLengthOfShips(); // ship length as an Array
-            String[][] firstPlayerOceanBoard = firstPlayerOcean;        // Ocean Board
 
 
             if (firstColumnCharacter1.equals(firstColumnCharacter2) || (secondColumnInteger1 == secondColumnInteger2)) { // Check the first both element is the same or not
@@ -87,19 +87,7 @@ public class Main extends Field {
                         for (int i = Math.min(secondColumnInteger1, secondColumnInteger2) - 1; i < Math.max(secondColumnInteger1, secondColumnInteger2); i++) {
                             firstPlayerOceanBoard[column(firstColumnCharacter1)][i] = "O";
 
-//                            try {
-//                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
-//                                    System.out.println("Error! Wrong ship location! Try again:");
-//                                    System.out.println();
-//                                }
-//                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
-//                                    System.out.println("Error! You placed it too close to another one. Try again:");
 //
-//                                }
-//                            } catch (ArrayIndexOutOfBoundsException e) {
-//
-//                                e.printStackTrace();
-//                            }
                         }
 
 
@@ -128,7 +116,7 @@ public class Main extends Field {
                     }
 
                 } else {
-                    while (!(Math.abs(dif) == eachShipLengthArray.length - 1 || subtractingCharsInteger == eachShipLengthArray.length )) {
+                    while (!(Math.abs(dif) == eachShipLengthArray.length - 1 || subtractingCharsInteger == eachShipLengthArray.length)) {
                         System.out.printf("Error! Wrong length of the %s! Try again:\n", values[i].getNameOfShips());
                         System.out.println();
                         firstColumn = scanner.next();
@@ -161,19 +149,7 @@ public class Main extends Field {
                                 for (int i = Math.min(secondColumnInteger1, secondColumnInteger2) - 1; i < Math.max(secondColumnInteger1, secondColumnInteger2); i++) {
                                     firstPlayerOceanBoard[column(firstColumnCharacter1)][i] = "O";
 
-//                            try {
-//                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
-//                                    System.out.println("Error! Wrong ship location! Try again:");
-//                                    System.out.println();
-//                                }
-//                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
-//                                    System.out.println("Error! You placed it too close to another one. Try again:");
-//
-//                                }
-//                            } catch (ArrayIndexOutOfBoundsException e) {
-//
-//                                e.printStackTrace();
-//                            }
+
                                 }
 
 
@@ -188,7 +164,7 @@ public class Main extends Field {
 //
 //                                if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
 //                                    System.out.println("Error! Wrong ship location! Try again:");
-//                                } else if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
+//                                } else if (firstColumnCharacter1)][i].equals("0")||firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
 //                                    System.out.println("Error! You placed it too close to another one. Try again:");
 //                                }
 //
@@ -241,19 +217,19 @@ public class Main extends Field {
                             for (int i = Math.min(secondColumnInteger1, secondColumnInteger2) - 1; i < Math.max(secondColumnInteger1, secondColumnInteger2); i++) {
                                 firstPlayerOceanBoard[column(firstColumnCharacter1)][i] = "O";
 
-                            try {
-                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
-                                    System.out.println("Error! Wrong ship location! Try again:");
-                                    System.out.println();
-                                }
-                                while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
-                                    System.out.println("Error! You placed it too close to another one. Try again:");
+                                try {
+                                    while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
+                                        System.out.println("Error! Wrong ship location! Try again:");
+                                        System.out.println();
+                                    }
+                                    while (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
+                                        System.out.println("Error! You placed it too close to another one. Try again:");
 
-                                }
-                            } catch (ArrayIndexOutOfBoundsException e) {
+                                    }
+                                } catch (ArrayIndexOutOfBoundsException e) {
 
-                                e.printStackTrace();
-                            }
+                                    e.printStackTrace();
+                                }
                             }
 
 
@@ -264,17 +240,17 @@ public class Main extends Field {
 
                             subtractingCharsInteger = subtractingCharsInteger + a;
                             for (int i = a; i < subtractingCharsInteger; i++) {
-                            try {
+                                try {
 
-                                if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
-                                    System.out.println("Error! Wrong ship location! Try again:");
-                                } else if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
-                                    System.out.println("Error! You placed it too close to another one. Try again:");
+                                    if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i].equals("0")) {
+                                        System.out.println("Error! Wrong ship location! Try again:");
+                                    } else if (firstPlayerOceanBoard[column(firstColumnCharacter1)][i + 1].equals("0") || firstPlayerOceanBoard[column(firstColumnCharacter1)][i - 1].equals("0")) {
+                                        System.out.println("Error! You placed it too close to another one. Try again:");
+                                    }
+
+                                } catch (ArrayIndexOutOfBoundsException e) {
+                                    e.printStackTrace();
                                 }
-
-                            } catch (ArrayIndexOutOfBoundsException e) {
-                                e.printStackTrace();
-                            }
 
                                 firstPlayerOceanBoard[i][secondColumnInteger1 - 1] = "O";
                             }
@@ -316,6 +292,8 @@ public class Main extends Field {
         }
         return count;
     }
+
+
 
 
 }
